@@ -20,21 +20,21 @@
             <div class="form-group">
 
                 <label for="first_name">First Name:</label>
-                <input type="text" class="form-control" name="first_name" value={{ $guestbook->first_name }} />
+                <input type="text" class="form-control" name="first_name" value="{{ $guestbook->first_name }}" />
             </div>
 
             <div class="form-group">
                 <label for="last_name">Last Name:</label>
-                <input type="text" class="form-control" name="last_name" value={{ $guestbook->last_name }} />
+                <input type="text" class="form-control" name="last_name" value="{{ $guestbook->last_name }}" />
             </div>
 
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" readonly class="form-control" name="email" value={{ $guestbook->email }} />
+                <input type="email"  class="form-control" name="email" value="{{ $guestbook->email }}" />
             </div>
             <div class="form-group">
                 <label for="phone">Phone:</label>
-                <input type="text" class="form-control" name="phone" value={{ $guestbook->phone}} />
+                <input type="text" class="form-control" name="phone" value="{{ $guestbook->phone}}" />
             </div>
             <div class="form-group">
                 <label for="gender">Gender:</label>

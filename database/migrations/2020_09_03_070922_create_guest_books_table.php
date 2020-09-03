@@ -17,8 +17,8 @@ class CreateGuestBooksTable extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('email')->unique();
-            $table->bigInteger('phone');
+            $table->string('email');
+            $table->bigInteger('phone')->nullable();
             $table->enum('gender', ['male', 'female', 'others']);;
             $table->text('address');
             $table->timestamps();

@@ -24,6 +24,8 @@
                     <td>Phone</td>
                     <td>Gender</td>
                     <td>Address</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
 
                 </tr>
             </thead>

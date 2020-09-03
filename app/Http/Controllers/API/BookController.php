@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\GuestBook;
+use App\Http\Resources\BookResource as BookResource;
+use App\Http\Requests\BookRequest;
 
-class GuestBookController extends Controller
+class BookController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,20 +19,7 @@ class GuestBookController extends Controller
     {
         //
         $guestbook = GuestBook::all();
-
-        return view('guestbook.index', compact('guestbook'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-        
-        return view('guestbook.create');
+        return (new BookResource($guestbook));
     }
 
     /**
@@ -38,18 +28,9 @@ class GuestBookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BookRequest $request)
     {
         //
-        $request->validate([
-            'first_name'=>'required',
-            'last_name'=>'required',
-            'email'=>'required|email',
-            'phone'=>'nullable|numeric',
-            'gender'=>'required',
-            'address'=>'required',
-        ]);
-
         $guestbook = new GuestBook([
             'first_name' => $request->get('first_name'),
             'last_name' => $request->get('last_name'),
@@ -59,7 +40,7 @@ class GuestBookController extends Controller
             'address' => $request->get('address')
         ]);
         $guestbook->save();
-        return redirect('/guestbook')->with('success', 'Data saved!');
+        return (new BookResource($guestbook));
     }
 
     /**
@@ -74,37 +55,14 @@ class GuestBookController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-        $guestbook = GuestBook::find($id);
-        return view('guestbook.edit', compact('guestbook'));    
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BookRequest $request, $id)
     {
-        //
-        $request->validate([
-            'first_name'=>'required',
-            'last_name'=>'required',
-            'email'=>'required|email',
-            'phone'=>'nullable|numeric',
-            'gender'=>'required',
-            'address'=>'required',
-        ]);
-
         $guestbook = GuestBook::find($id);
         $guestbook->first_name =  $request->get('first_name');
         $guestbook->last_name = $request->get('last_name');
@@ -113,8 +71,7 @@ class GuestBookController extends Controller
         $guestbook->gender = $request->get('gender');
         $guestbook->address = $request->get('address');       
         $guestbook->save();
-
-        return redirect('/guestbook')->with('success', 'Data updated!');
+        return (new BookResource($guestbook));
     }
 
     /**
@@ -128,7 +85,7 @@ class GuestBookController extends Controller
         //
         $guestbook = GuestBook::find($id);
         $guestbook->delete();
+        return response()->json("ok");
 
-        return redirect('/guestbook')->with('success', 'Data deleted!');
     }
 }
