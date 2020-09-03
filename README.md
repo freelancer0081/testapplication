@@ -9,9 +9,9 @@
 
 ## About Application
 
-1.) Change database in .env file.
-2.) run npm install after download sourcecode.
-3.) welcome page is in Vue component with laravel api.
-4.) http://domain.com/guestbook  url is backend part of application.
+<p>1.) Change database in .env file.</p>
+<p>2.) run npm install after download sourcecode.</p>
+<p>3.) welcome page is in Vue component with laravel api.</p>
+<p>4.) http://domain.com/guestbook  url is backend part of application.</p>
 
 
