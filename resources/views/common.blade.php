@@ -17,7 +17,7 @@
 
 <body>
     <div class="container">
-      I m in backend
+      @yield('main')
     </div>
     
 </body>
