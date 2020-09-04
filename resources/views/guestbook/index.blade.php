@@ -1,7 +1,9 @@
 @extends('common')
-
 @section('main')
 <div class="row">
+    <div class="col-md-12">
+        @include('navbar')
+    </div>
     <div class="col-sm-12">
 
         @if(session()->get('success'))
@@ -11,7 +13,7 @@
         @endif
     </div>
     <div class="col-sm-12">
-   
+
         <h3>Guest Book list</h3>
         <a href="{{ route('guestbook.create')}}" class="btn btn-primary" type="submit">Add</a>
         <table class="table table-striped mt-5">
