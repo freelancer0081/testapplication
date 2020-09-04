@@ -13,6 +13,6 @@
 <p>2.) run npm install after download sourcecode.</p>
 <p>3.) welcome page is in Vue component with laravel api.</p>
 <p>4.) http://domain.com/guestbook  url is backend part of application.</p>
-<a href="#"><img src="https://ibb.co/MCs5kh6" alt="image"></a>
+<a href="https://ibb.co/MCs5kh6"><img src="https://i.ibb.co/TgkqMTL/screencapture-crudtest-server-2020-09-04-10-12-17.png" alt="screencapture-crudtest-server-2020-09-04-10-12-17" border="0"></a>
 
 
